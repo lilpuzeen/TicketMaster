@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>TicketMaster</title>
+{% endblock %}
+
+{% block body %}
+    <h1 class="welcome_header">Welcome to TicketMaster application made by @lilpuzeen</h1>
+    
+    <form action="/" method="POST">
+        <input type="text" name="approve" id="approve" placeholder="Enter TicketID" required minlength="6" maxlength="6" size="10">
+        <input type="submit" value="Approve">
+    </form>
+{% endblock %}

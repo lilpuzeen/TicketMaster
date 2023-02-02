@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>TicketMaster</title>
+{% endblock %}
+
+{% block body %}
+    <h1 class="welcome_header">Welcome to TicketMaster application made by @lilpuzeen</h1>
+    
+    <h2 class="new_guest">Access Granted!</h2>
+    <br>
+    <h2 class="new_guest">Welcome {{ ticket_id }}!</h2>
+
+    <button onclick="window.location.href='/'" class="back_btn">Back</button>
+{% endblock %}
