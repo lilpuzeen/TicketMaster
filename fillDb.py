@@ -88,3 +88,4 @@ if __name__ == '__main__':
     # clear_db()
     # set_whole_column_to_value("is_sold", "1")
     # set_whole_column_to_value("is_used", "0")
+    reset_db_to_defaults()
