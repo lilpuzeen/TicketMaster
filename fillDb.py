@@ -1,5 +1,3 @@
-# fill test.db with 500 tickets
-
 from app import db, Ticket
 import random
 from sqlalchemy import text
@@ -77,6 +75,7 @@ def reset_db_to_defaults():
     db.session.execute(text(f"UPDATE ticket SET is_sold = 0"))
     db.session.execute(text(f"UPDATE ticket SET is_used = 0"))
     db.session.commit()
+
 
 if __name__ == '__main__':
     # fill_db()

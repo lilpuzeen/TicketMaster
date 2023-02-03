@@ -8,6 +8,7 @@ db = SQLAlchemy(app)
 
 app.app_context().push()
 
+
 class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     ticket_id = db.Column(db.String(50), nullable=False)
@@ -16,6 +17,7 @@ class Ticket(db.Model):
     
     def __repr__(self):
         return f"Ticket with id {self.ticket_id}, sold: {self.is_sold}, used: {self.is_used}"
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -54,6 +56,7 @@ def guest_added():
 @app.route('/ticket_doesnt_exist', methods=['GET', 'POST'])
 def ticket_doesnt_exist():
     return render_template('ticket_doesnt_exist.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
