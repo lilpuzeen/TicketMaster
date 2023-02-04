@@ -40,7 +40,7 @@ def retrieve_non_sold_ticket() -> str:
     return ticket.ticket_id
 
 
-def add_new_column(col_name, col_type, default=None) -> None:
+def add_new_column(col_name: str, col_type: str, default=None) -> None:
     if default:
         db.session.execute(f"ALTER TABLE ticket ADD COLUMN {col_name} {col_type} DEFAULT {default}")
     else:
@@ -48,7 +48,7 @@ def add_new_column(col_name, col_type, default=None) -> None:
     db.session.commit()
     
     
-def retrieve_non_existing_ticket_id():
+def retrieve_non_existing_ticket_id() -> int:
     tickets = Ticket.query.all()
     ticket_ids = [ticket.ticket_id for ticket in tickets]
     ticket_ids = [int(ticket_id) for ticket_id in ticket_ids]
@@ -59,22 +59,30 @@ def retrieve_non_existing_ticket_id():
     return ticket_ids[-1] + 1
 
 
-def clear_db():
+def clear_db() -> None:
     tickets = Ticket.query.all()
     for ticket in tickets:
         db.session.delete(ticket)
     db.session.commit()
 
 
-def set_whole_column_to_value(col_name, value):
+def set_whole_column_to_value(col_name: str, value: str) -> None:
     db.session.execute(text(f"UPDATE ticket SET {col_name} = {value}"))
     db.session.commit()
     
 
-def reset_db_to_defaults():
+def reset_db_to_defaults() -> None:
     db.session.execute(text(f"UPDATE ticket SET is_sold = 0"))
     db.session.execute(text(f"UPDATE ticket SET is_used = 0"))
     db.session.commit()
+
+
+def test_case() -> None:
+    tickets = Ticket.query.all()
+    for i in range(10):
+        tickets[i].is_sold = True
+    db.session.commit()
+    
 
 
 if __name__ == '__main__':
@@ -87,4 +95,5 @@ if __name__ == '__main__':
     # clear_db()
     # set_whole_column_to_value("is_sold", "1")
     # set_whole_column_to_value("is_used", "0")
-    reset_db_to_defaults()
+    # reset_db_to_defaults()
+    test_case()

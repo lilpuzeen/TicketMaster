@@ -5,7 +5,14 @@
 {% endblock %}
 
 {% block body %}
-    <span class="ticket_used">Ticket has been used</span>
-
-    <button onclick="window.location.href='/'" class="btn-primary">Back</button>
+<div class="container">
+    <div class="row">
+        <div class="mb-3 col-lg-12 text-center">
+            <h2 class="ticket_doesnt_exist" style="color:red; font-size: 5rem;">Ticket has been used</h2>
+        </div>
+        <div class="mb-3 col-lg-12 text-center">
+            <button onclick="window.location.href='/'" class="btn w-50 btn-primary">Back</button>
+        </div>
+    </div>
+</div>
 {% endblock %}
