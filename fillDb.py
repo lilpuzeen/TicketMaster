@@ -4,12 +4,20 @@ from sqlalchemy import text
 
 
 def fill_db() -> None:
-    ticket_ids = random.sample(range(100000, 999999), 300)
+    ticket_ids = random.sample(range(100000, 999999), 500)
 
     for ticket_id in ticket_ids:
         ticket = Ticket(ticket_id=str(ticket_id))
         db.session.add(ticket)
         db.session.commit()
+
+
+def fill_db_from_file() -> None:
+    with open("tickets.txt", "r") as f:
+        for line in f:
+            ticket = Ticket(ticket_id=line.strip())
+            db.session.add(ticket)
+            db.session.commit()
 
 
 def check_db_for_duplicates() -> None:
@@ -58,7 +66,7 @@ def retrieve_non_existing_ticket_id() -> int:
             return ticket_ids[i] + 1
     return ticket_ids[-1] + 1
 
-
+@DeprecationWarning
 def clear_db() -> None:
     tickets = Ticket.query.all()
     for ticket in tickets:
@@ -76,13 +84,19 @@ def reset_db_to_defaults() -> None:
     db.session.execute(text(f"UPDATE ticket SET is_used = 0"))
     db.session.commit()
 
-
+@DeprecationWarning
 def test_case() -> None:
     tickets = Ticket.query.all()
     for i in range(10):
         tickets[i].is_sold = True
     db.session.commit()
     
+
+def save_all_tickets_to_file() -> None:
+    tickets = Ticket.query.all()
+    with open("tickets.txt", "w") as f:
+        for ticket in tickets:
+            f.write(f"{ticket.ticket_id}" + "\n")
 
 
 if __name__ == '__main__':
@@ -96,4 +110,5 @@ if __name__ == '__main__':
     # set_whole_column_to_value("is_sold", "1")
     # set_whole_column_to_value("is_used", "0")
     # reset_db_to_defaults()
-    test_case()
+    # test_case()
+    save_all_tickets_to_file()
