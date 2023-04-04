@@ -84,7 +84,7 @@ def reset_db_to_defaults() -> None:
     db.session.execute(text(f"UPDATE ticket SET is_used = 0"))
     db.session.commit()
 
-@DeprecationWarning
+# @DeprecationWarning
 def test_case() -> None:
     tickets = Ticket.query.all()
     for i in range(10):
@@ -110,6 +110,6 @@ if __name__ == '__main__':
     # set_whole_column_to_value("is_sold", "1")
     # set_whole_column_to_value("is_used", "0")
     # reset_db_to_defaults()
-    # test_case()
+    test_case()
     # save_all_tickets_to_file()
-    sell_ticket("970277")
+    # sell_ticket("970277")
