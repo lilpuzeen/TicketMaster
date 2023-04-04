@@ -111,4 +111,5 @@ if __name__ == '__main__':
     # set_whole_column_to_value("is_used", "0")
     # reset_db_to_defaults()
     # test_case()
-    save_all_tickets_to_file()
+    # save_all_tickets_to_file()
+    sell_ticket("970277")
