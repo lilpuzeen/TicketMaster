@@ -66,7 +66,7 @@ def retrieve_non_existing_ticket_id() -> int:
             return ticket_ids[i] + 1
     return ticket_ids[-1] + 1
 
-@DeprecationWarning
+# @DeprecationWarning
 def clear_db() -> None:
     tickets = Ticket.query.all()
     for ticket in tickets:
@@ -110,6 +110,17 @@ def reset_id() -> None:
     db.session.commit()
 
 
+def delete_all_tickets() -> None:
+    db.session.execute(text(f"DELETE FROM ticket"))
+    db.session.commit()
+
+
+def reset_db() -> None:
+    clear_db()
+    reset_id()
+    fill_db_from_file()
+
+
 if __name__ == '__main__':
     # fill_db()
     # check_db_for_duplicates()
@@ -118,12 +129,15 @@ if __name__ == '__main__':
     # add_new_column("test", "INTEGER", 0)
     # print(retrieve_non_existing_ticket_id())
     # clear_db()
+    # reset_id()
     # set_whole_column_to_value("is_sold", "1")
     # set_whole_column_to_value("is_used", "0")
-    reset_db_to_defaults()
+    # reset_db_to_defaults()
     # test_case()
     # insert_ticket("970277")
-    # fill_db_from_file()
+    fill_db_from_file()
+    # reset_db()
     # save_all_tickets_to_file()
     # sell_ticket("970277")
+    # delete_all_tickets()
     # pass

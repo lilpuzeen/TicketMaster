@@ -6,13 +6,12 @@ import os
 
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://iamdijvmenbvnx:c3fb4b1e7dbcf54128126664720c119764a219b2ecf65fa5bfb5896ae3f10d61@ec2-44-213-228-107.compute-1.amazonaws.com:5432/d1rk7igu85ro1d'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://crowd_user:TvD3iHM4f8gDyZlf27uH9mcZ0ctcnQYk@dpg-cgoc58gu9tun42oev7jg-a.frankfurt-postgres.render.com/crowd'
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config.update(
-    SQLALCHEMY_TRACK_MODIFICATIONS=False,
-    SQLALCHEMY_DATABASE_URI=os.environ.get("SQLALCHEMY_DATABASE_URI")
-)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://crowd_user:TvD3iHM4f8gDyZlf27uH9mcZ0ctcnQYk@dpg-cgoc58gu9tun42oev7jg-a.frankfurt-postgres.render.com/crowd'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config.update(
+#     SQLALCHEMY_TRACK_MODIFICATIONS=False,
+#     SQLALCHEMY_DATABASE_URI=os.environ.get("SQLALCHEMY_DATABASE_URI")
+# )
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
