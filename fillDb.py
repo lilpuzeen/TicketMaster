@@ -87,7 +87,7 @@ def reset_db_to_defaults() -> None:
 # @DeprecationWarning
 def test_case() -> None:
     tickets = Ticket.query.all()
-    for i in range(10):
+    for i in range(1):
         tickets[i].is_sold = True
     db.session.commit()
     
@@ -97,6 +97,17 @@ def save_all_tickets_to_file() -> None:
     with open("tickets.txt", "w") as f:
         for ticket in tickets:
             f.write(f"{ticket.ticket_id}" + "\n")
+            
+
+def insert_ticket(ticket_id: str) -> None:
+    ticket = Ticket(ticket_id=ticket_id)
+    db.session.execute(text(f"INSERT INTO ticket (ticket_id, is_sold, is_used) VALUES ({ticket_id}, {False}, {False})"))
+    db.session.commit()
+
+
+def reset_id() -> None:
+    db.session.execute(text(f"ALTER SEQUENCE ticket_id_seq RESTART WITH 1;"))
+    db.session.commit()
 
 
 if __name__ == '__main__':
@@ -111,6 +122,8 @@ if __name__ == '__main__':
     # set_whole_column_to_value("is_used", "0")
     # reset_db_to_defaults()
     # test_case()
+    # insert_ticket("970277")
+    fill_db_from_file()
     # save_all_tickets_to_file()
     # sell_ticket("970277")
-    pass
+    # pass
