@@ -80,14 +80,14 @@ def set_whole_column_to_value(col_name: str, value: str) -> None:
     
 
 def reset_db_to_defaults() -> None:
-    db.session.execute(text(f"UPDATE ticket SET is_sold = 0"))
-    db.session.execute(text(f"UPDATE ticket SET is_used = 0"))
+    db.session.execute(text(f"UPDATE ticket SET is_sold = {False}"))
+    db.session.execute(text(f"UPDATE ticket SET is_used = {False}"))
     db.session.commit()
 
 # @DeprecationWarning
 def test_case() -> None:
     tickets = Ticket.query.all()
-    for i in range(1):
+    for i in range(10):
         tickets[i].is_sold = True
     db.session.commit()
     
@@ -120,10 +120,10 @@ if __name__ == '__main__':
     # clear_db()
     # set_whole_column_to_value("is_sold", "1")
     # set_whole_column_to_value("is_used", "0")
-    # reset_db_to_defaults()
+    reset_db_to_defaults()
     # test_case()
     # insert_ticket("970277")
-    fill_db_from_file()
+    # fill_db_from_file()
     # save_all_tickets_to_file()
     # sell_ticket("970277")
     # pass

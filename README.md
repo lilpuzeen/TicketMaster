@@ -24,8 +24,9 @@ python3 app.py
 
 👤 **Arman Tovmasyan**
 
-* Website: https://www.instagram.com/lil_puzeen/?hl=ru
+* Website: [@lil_puzeen](https://www.instagram.com/)lil_puzeen/?hl=ru
 * Github: [@lilpuzeen](https://github.com/lilpuzeen)
+* Deployed on Render: [Antares Crowd TicketMaster](https://antarescrowd.onrender.com/)
 
 ## Show your support
 
