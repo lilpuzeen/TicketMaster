@@ -1,0 +1,1 @@
+PGPASSWORD=TvD3iHM4f8gDyZlf27uH9mcZ0ctcnQYk psql -h dpg-cgoc58gu9tun42oev7jg-a.frankfurt-postgres.render.com -U crowd_user crowd
