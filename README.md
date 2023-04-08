@@ -11,7 +11,7 @@
 ## Install
 
 ```sh
-pip install -r requirements.txt --no-index --find-links file:///tmp/packages
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ python3 app.py
 
 👤 **Arman Tovmasyan**
 
-* Website: [@lil_puzeen](https://www.instagram.com/lil_puzeen/?hl=ru)
+* Instagram: [@lil_puzeen](https://www.instagram.com/lil_puzeen/?hl=ru)
 * Github: [@lilpuzeen](https://github.com/lilpuzeen)
 * Deployed on Render: [Antares Crowd TicketMaster](https://antarescrowd.onrender.com/)
 
