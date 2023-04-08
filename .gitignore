@@ -3,3 +3,5 @@ connect.sh
 Procfile
 tickets.txt
 tickets_sales.xlsx
+.env
+config.py
