@@ -4,6 +4,18 @@ from flask_migrate import Migrate
 import re
 import os
 
+# TODO: Add visitors information such as: (First Name, Second Name) ->
+## TODO: -> retrieve data on pages like (Access Granted [VISITOR INFO]) =>
+## TODO: => If required, refactor DB and cast to normal forms (at least III NF)
+
+# TODO: Prepare project for production ->
+## TODO: -> Put secret vars into env_vars
+## TODO: -> Reformat pages: [ticket_doesnt_exist, ticket_used]
+## TODO: -> Add some functionality to the main [other] page =>
+### TODO: => Concert Information [DJ's, Artists, Date & Time, Location{Map's API}]
+
+# TODO: Refactor 'config.py' file, configurate "Production", "Development" modes
+
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://crowd_user:TvD3iHM4f8gDyZlf27uH9mcZ0ctcnQYk@dpg-cgoc58gu9tun42oev7jg-a.frankfurt-postgres.render.com/crowd'
@@ -66,7 +78,6 @@ def guest_added():
 @app.route('/ticket_doesnt_exist', methods=['GET', 'POST'])
 def ticket_doesnt_exist():
     return render_template('ticket_doesnt_exist.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
