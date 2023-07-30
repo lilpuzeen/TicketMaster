@@ -1,4 +1,5 @@
 /instance/test.db
+/names
 connect.sh
 Procfile
 tickets.txt

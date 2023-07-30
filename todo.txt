@@ -1,0 +1,11 @@
+# TODO: Add visitors information such as: (First Name, Second Name) ->
+## TODO: -> retrieve data on pages like (Access Granted [VISITOR INFO]) =>
+## TODO: => If required, refactor DB and cast to normal forms (at least III NF)
+
+# TODO: Prepare project for production ->
+## TODO: -> Put secret vars into env_vars
+## TODO: -> Reformat pages: [ticket_doesnt_exist, ticket_used]
+## TODO: -> Add some functionality to the main [other] page =>
+### TODO: => Concert Information [DJ's, Artists, Date & Time, Location{Map's API}]
+
+# TODO: Refactor 'config.py' file, configurate "Production", "Development" modes

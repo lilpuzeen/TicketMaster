@@ -122,22 +122,4 @@ def reset_db() -> None:
 
 
 if __name__ == '__main__':
-    # fill_db()
-    # check_db_for_duplicates()
-    # ticket_returned("1234")
-    # print(retrieve_non_sold_ticket())
-    # add_new_column("test", "INTEGER", 0)
-    # print(retrieve_non_existing_ticket_id())
-    # clear_db()
-    # reset_id()
-    # set_whole_column_to_value("is_sold", "1")
-    # set_whole_column_to_value("is_used", "0")
-    # reset_db_to_defaults()
-    # test_case()
-    # insert_ticket("970277")
-    fill_db_from_file()
-    # reset_db()
-    # save_all_tickets_to_file()
-    # sell_ticket("970277")
-    # delete_all_tickets()
-    # pass
+    reset_db()
