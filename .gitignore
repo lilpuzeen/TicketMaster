@@ -11,3 +11,5 @@ tickets_sales.xlsx
 .env
 config.py
 todo.txt
+.DS_Store
+Concert/
