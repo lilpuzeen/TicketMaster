@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
-from models import Ticket
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 import re
 import os
 
@@ -7,9 +8,21 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 
 app.app_context().push()
+
+
+class Ticket(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    ticket_id = db.Column(db.String(50), nullable=False)
+    is_sold = db.Column(db.Boolean, default=False)
+    is_used = db.Column(db.Boolean, default=False)
+    
+    def __repr__(self):
+        return f"Ticket with id {self.ticket_id}, sold: {self.is_sold}, used: {self.is_used}"
 
 
 @app.route('/', methods=['GET', 'POST'])
