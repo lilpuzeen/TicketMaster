@@ -1,5 +1,9 @@
 /instance/test.db
 /names
+/.idea
+/.vscode
+/__pycache__
+/migrations
 connect.sh
 Procfile
 tickets.txt
